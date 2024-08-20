@@ -1,0 +1,10 @@
+#pragma once
+
+struct BuildInfo {
+  static inline const std::string_view CommitSHA{"@GIT_COMMIT@"};
+  static inline const std::string_view CommitDate{"@GIT_DATE@"};
+  static inline const std::string_view Branch{"@GIT_BRANCH@"};
+  static inline const std::string_view Tag{"@GIT_TAG@"};
+  static inline const std::string_view Version{"@PROJECT_VERSION@"};
+  static inline const std::string_view BuildTimestamp{"@TIMESTAMP@"};
+};
