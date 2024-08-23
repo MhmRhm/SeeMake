@@ -1,0 +1,351 @@
+{
+	"version": 6,
+	"configurePresets": [
+		{
+			"name": "linux-default-debug",
+			"displayName": "Linux Debug",
+			"description": "Sets compilers, build and install directory, debug build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Linux"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O0"
+			}
+		},
+		{
+			"name": "linux-default-release",
+			"displayName": "Linux Release",
+			"description": "Sets compilers, build and install directory, release build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Linux"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O3"
+			}
+		},
+		{
+			"name": "windows-default-debug",
+			"displayName": "Windows Debug",
+			"description": "Sets compilers, build and install directory, debug build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "cl.exe",
+				"CMAKE_CXX_COMPILER": "cl.exe",
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
+				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
+				"WIN_MSVC": "YES",
+				"DEFAULT_CXX_COMPILE_FLAGS": "/W4;/Wall;/WX;/EHsc;/wd4668;/wd4710;/wd4711",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "/Od"
+			}
+		},
+		{
+			"name": "windows-default-release",
+			"displayName": "Windows Release",
+			"description": "Sets compilers, build and install directory, release build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "cl.exe",
+				"CMAKE_CXX_COMPILER": "cl.exe",
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
+				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
+				"DEFAULT_CXX_COMPILE_FLAGS": "/W4;/Wall;/WX;/EHsc;/wd4668;/wd4710;/wd4711",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "/Ox"
+			}
+		},
+		{
+			"name": "windows-clang-debug",
+			"displayName": "Windows Clang Debug",
+			"description": "Sets compilers, build and install directory, debug build type",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "clang",
+				"CMAKE_CXX_COMPILER": "clang++",
+				"CMAKE_MAKE_PROGRAM": "C:/Program Files/ninja/ninja",
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
+				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
+				"WIN_CLANG": "YES",
+				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O0"
+			}
+		},
+		{
+			"name": "windows-clang-release",
+			"displayName": "Windows Clang Release",
+			"description": "Sets compilers, build and install directory, release build type",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "clang",
+				"CMAKE_CXX_COMPILER": "clang++",
+				"CMAKE_MAKE_PROGRAM": "C:/Program Files/ninja/ninja",
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
+				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
+				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O3"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "linux-default-debug",
+			"jobs": 10,
+			"displayName": "Linux Debug",
+			"description": "debug build type",
+			"configurePreset": "linux-default-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "linux-default-release",
+			"jobs": 10,
+			"displayName": "Linux Release",
+			"description": "release build type",
+			"configurePreset": "linux-default-release",
+			"configuration": "Release"
+		},
+		{
+			"name": "windows-default-debug",
+			"jobs": 10,
+			"displayName": "Windows Debug",
+			"description": "debug build type",
+			"configurePreset": "windows-default-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "windows-default-release",
+			"jobs": 10,
+			"displayName": "Windows Release",
+			"description": "release build type",
+			"configurePreset": "windows-default-release",
+			"configuration": "Release"
+		},
+		{
+			"name": "windows-clang-debug",
+			"jobs": 10,
+			"displayName": "Windows Clang Debug",
+			"description": "debug build type",
+			"configurePreset": "windows-clang-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "windows-clang-release",
+			"jobs": 10,
+			"displayName": "Windows Clang Release",
+			"description": "release build type",
+			"configurePreset": "windows-clang-release",
+			"configuration": "Release"
+		}
+	],
+	"testPresets": [
+		{
+			"name": "linux-test-debug",
+			"displayName": "Linux Test Debug",
+			"description": "Tests the debug build type",
+			"configurePreset": "linux-default-debug"
+		},
+		{
+			"name": "linux-test-release",
+			"displayName": "Linux Test Release",
+			"description": "Tests the release build type",
+			"configurePreset": "linux-default-release"
+		},
+		{
+			"name": "windows-test-debug",
+			"displayName": "Windows Test Debug",
+			"description": "Tests the debug build type",
+			"configurePreset": "windows-default-debug"
+		},
+		{
+			"name": "windows-test-release",
+			"displayName": "Windows Test Release",
+			"description": "Tests the release build type",
+			"configurePreset": "windows-default-release"
+		},
+		{
+			"name": "windows-clang-test-debug",
+			"displayName": "Windows Clang Test Debug",
+			"description": "Tests the debug build type",
+			"configurePreset": "windows-clang-debug"
+		},
+		{
+			"name": "windows-clang-test-release",
+			"displayName": "Windows Clang Test Release",
+			"description": "Tests the release build type",
+			"configurePreset": "windows-clang-release"
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "linux-default-debug",
+			"displayName": "Linux Debug",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "linux-default-debug"
+				},
+				{
+					"type": "build",
+					"name": "linux-default-debug"
+				},
+				{
+					"type": "test",
+					"name": "linux-test-debug"
+				}
+			]
+		},
+		{
+			"name": "linux-default-release",
+			"displayName": "Linux Release",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "linux-default-release"
+				},
+				{
+					"type": "build",
+					"name": "linux-default-release"
+				},
+				{
+					"type": "test",
+					"name": "linux-test-release"
+				}
+			]
+		},
+		{
+			"name": "windows-default-debug",
+			"displayName": "Windows Debug",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "windows-default-debug"
+				},
+				{
+					"type": "build",
+					"name": "windows-default-debug"
+				},
+				{
+					"type": "test",
+					"name": "windows-test-debug"
+				}
+			]
+		},
+		{
+			"name": "windows-default-release",
+			"displayName": "Windows Release",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "windows-default-release"
+				},
+				{
+					"type": "build",
+					"name": "windows-default-release"
+				},
+				{
+					"type": "test",
+					"name": "windows-test-release"
+				}
+			]
+		},
+		{
+			"name": "windows-clang-debug",
+			"displayName": "Windows Clang Debug",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "windows-clang-debug"
+				},
+				{
+					"type": "build",
+					"name": "windows-clang-debug"
+				},
+				{
+					"type": "test",
+					"name": "windows-clang-test-debug"
+				}
+			]
+		},
+		{
+			"name": "windows-clang-release",
+			"displayName": "Windows Clang Release",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "windows-clang-release"
+				},
+				{
+					"type": "build",
+					"name": "windows-clang-release"
+				},
+				{
+					"type": "test",
+					"name": "windows-clang-test-release"
+				}
+			]
+		}
+	]
+}
