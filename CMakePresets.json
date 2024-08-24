@@ -238,6 +238,49 @@
 			"configurePreset": "windows-clang-release"
 		}
 	],
+	"packagePresets": [
+		{
+			"name": "linux-deb",
+			"description": "linux deb packaging",
+			"displayName": "Linux DEB",
+			"configurePreset": "linux-default-release",
+			"generators": ["DEB"],
+			"configurations": ["Release"],
+			"vendorName": "Mohammad Rahimi",
+			"packageDirectory": "package-linux-deb",
+			"environment": {
+				"CPACK_DEBIAN_PACKAGE_NAME": "SeeMake",
+				"CPACK_DEBIAN_FILE_NAME": "DEB-DEFAULT"
+			}
+		},
+		{
+			"name": "windows-nsis",
+			"hidden": true,
+			"generators": ["NSIS"],
+			"configurations": ["Release"],
+			"vendorName": "Mohammad Rahimi",
+			"packageDirectory": "package-windows-nsis",
+			"environment": {
+				"CPACK_NSIS_DISPLAY_NAME": "SeeMake",
+				"CPACK_NSIS_PACKAGE_NAME": "SeeMake",
+				"CPACK_NSIS_URL_INFO_ABOUT": "https://github.com/MhmRhm"
+			}
+		},
+		{
+			"name": "windows-default-nsis",
+			"inherits": "windows-nsis",
+			"displayName": "Windows NSIS",
+			"description": "windows nsis packaging",
+			"configurePreset": "windows-default-release"
+		},
+		{
+			"name": "windows-clang-nsis",
+			"inherits": "windows-nsis",
+			"displayName": "Windows NSIS",
+			"description": "windows nsis packaging",
+			"configurePreset": "windows-clang-release"
+		}
+	],
 	"workflowPresets": [
 		{
 			"name": "linux-default-debug",
@@ -272,6 +315,10 @@
 				{
 					"type": "test",
 					"name": "linux-test-release"
+				},
+				{
+					"type": "package",
+					"name": "linux-deb"
 				}
 			]
 		},
@@ -308,6 +355,10 @@
 				{
 					"type": "test",
 					"name": "windows-test-release"
+				},
+				{
+					"type": "package",
+					"name": "windows-default-nsis"
 				}
 			]
 		},
@@ -344,6 +395,10 @@
 				{
 					"type": "test",
 					"name": "windows-clang-test-release"
+				},
+				{
+					"type": "package",
+					"name": "windows-clang-nsis"
 				}
 			]
 		}
