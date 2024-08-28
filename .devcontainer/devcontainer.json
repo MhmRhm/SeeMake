@@ -1,0 +1,17 @@
+{
+  // For more documentation visit https://github.com/devcontainers
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "capAdd": [ "SYS_PTRACE" ],
+  "securityOpt": [ "seccomp=unconfined" ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "mhutchie.git-graph"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
