@@ -17,14 +17,14 @@ Format(terminal_see_static .)
 AddCppCheck(terminal_see_static)
 Doxygen(terminal_see_static src/see)
 
-add_executable(see main.cpp)
+add_executable(appsee main.cpp)
 
-target_compile_options(see
+target_compile_options(appsee
 	PRIVATE ${DEFAULT_CXX_COMPILE_FLAGS}
 	PRIVATE ${DEFAULT_CXX_OPTIMIZE_FLAG}
 )
 
-target_link_libraries(see
+target_link_libraries(appsee
 	PRIVATE precompiled
 	PRIVATE terminal_see_static
 )

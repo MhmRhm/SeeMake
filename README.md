@@ -10,6 +10,8 @@ This template comes with a tutorial and a working example, so be sure to read on
 3. [Using Dev Containers](#using-dev-containers)
 4. [Setting Up Linux](#setting-up-ubuntu)
 5. [Setting Up Windows](#setting-up-windows)
+6. [Final Step](#final-step)
+7. [First Step](#first-step)
 
 ## Included Features:
 
@@ -293,6 +295,53 @@ that matches your setup:
 
 ```bash
 cmake --workflow --list-presets
+cmake --workflow --preset linux-default-release
+```
+
+## First Step
+
+After developing your library using this template, your users will need to add it
+as an external dependency. One easy way to do this is by using CMake's
+`FetchContent`. This template has already set things up, so your users can add
+your library like this:
+
+```cmake
+# CMakeLists.txt
+cmake_minimum_required(VERSION 3.30.0)
+project(Extension VERSION 0.0.0 LANGUAGES CXX)
+
+include(FetchContent)
+FetchContent_Declare(Libsee
+    GIT_TAG main
+    GIT_REPOSITORY https://github.com/MhmRhm/SeeMake.git
+)
+FetchContent_MakeAvailable(Libsee)
+
+# or after installation:
+# find_package(libsee)
+
+add_executable(extension main.cpp)
+target_link_libraries(extension PRIVATE see::libsee_shared see::precompiled)
+```
+
+In their `main.cpp`, they might write:
+
+```cpp
+// main.cpp
+
+#include <iostream>
+#include <format>
+#include "libsee/see_model.h"
+
+int main() {
+  std::cout << getVersion() << std::endl;
+}
+```
+
+Finally, they can compile the project easily using the `CMakePresets.json` file
+or setup their own presets:
+
+```bash
 cmake --workflow --preset linux-default-release
 ```
 

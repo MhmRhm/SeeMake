@@ -46,7 +46,7 @@ install(
 	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libsee"
 )
 
-install(TARGETS see)
+install(TARGETS appsee)
 
 set(CPACK_PACKAGE_CONTACT "Mohammad Rahimi <https://github.com/MhmRhm>")
 set(CPACK_PACKAGE_DESCRIPTION "SeeMake: a CMake project template.")
