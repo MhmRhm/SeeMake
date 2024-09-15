@@ -8,10 +8,11 @@ This template comes with a tutorial and a working example, so be sure to read on
 1. [Included Features](#included-eatures)
 2. [Before You Begin](#before-you-begin)
 3. [Using Dev Containers](#using-dev-containers)
-4. [Setting Up Linux](#setting-up-ubuntu)
+4. [Setting Up Linux](#setting-up-linux)
 5. [Setting Up Windows](#setting-up-windows)
-6. [Final Step](#final-step)
-7. [First Step](#first-step)
+6. [Setting Up Mac](#setting-up-mac)
+7. [Final Step](#final-step)
+8. [First Step](#first-step)
 
 ## Included Features:
 
@@ -287,6 +288,28 @@ python3 -m http.server 8172
 
 9. **[Ninja](https://ninja-build.org/)**: Copy the executable to
 `C:/Program Files/ninja/`.
+
+## Setting Up Mac
+
+Mac support at the moment lacks coverage reports and dynamic checks. To set up
+Mac for this template, follow these steps:
+
+1. Install Homebrew.
+
+```zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mohammad/.zprofile      
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+2. Install dependencies:
+
+```zsh
+brew install git cmake
+brew install cppcheck
+brew install clang-format
+brew install doxygen graphviz
+```
 
 ## Final Step
 

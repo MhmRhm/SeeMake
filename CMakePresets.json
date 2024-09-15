@@ -148,6 +148,48 @@
 				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
 				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O3"
 			}
+		},
+		{
+			"name": "mac-default-debug",
+			"displayName": "Mac Debug",
+			"description": "Sets compilers, build and install directory, debug build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Darwin"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O0"
+			}
+		},
+		{
+			"name": "mac-default-release",
+			"displayName": "Mac Release",
+			"description": "Sets compilers, build and install directory, release build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Darwin"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"DEFAULT_CXX_COMPILE_FLAGS": "-Wextra;-Wall;-Wfloat-equal;-Wundef;-Wpointer-arith;-Wshadow;-Wcast-align;-Wswitch-default;-Wswitch-enum;-Wconversion;-Wpedantic;-Werror",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "-O3"
+			}
 		}
 	],
 	"buildPresets": [
@@ -198,6 +240,22 @@
 			"description": "release build type",
 			"configurePreset": "windows-clang-release",
 			"configuration": "Release"
+		},
+		{
+			"name": "mac-default-debug",
+			"jobs": 10,
+			"displayName": "Mac Debug",
+			"description": "debug build type",
+			"configurePreset": "mac-default-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "mac-default-release",
+			"jobs": 10,
+			"displayName": "Mac Release",
+			"description": "release build type",
+			"configurePreset": "mac-default-release",
+			"configuration": "Release"
 		}
 	],
 	"testPresets": [
@@ -236,6 +294,18 @@
 			"displayName": "Windows Clang Test Release",
 			"description": "Tests the release build type",
 			"configurePreset": "windows-clang-release"
+		},
+		{
+			"name": "mac-test-debug",
+			"displayName": "Mac Test Debug",
+			"description": "Tests the debug build type",
+			"configurePreset": "mac-default-debug"
+		},
+		{
+			"name": "mac-test-release",
+			"displayName": "Mac Test Release",
+			"description": "Tests the release build type",
+			"configurePreset": "mac-default-release"
 		}
 	],
 	"packagePresets": [
@@ -399,6 +469,42 @@
 				{
 					"type": "package",
 					"name": "windows-clang-nsis"
+				}
+			]
+		},
+		{
+			"name": "mac-default-debug",
+			"displayName": "Mac Debug",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "mac-default-debug"
+				},
+				{
+					"type": "build",
+					"name": "mac-default-debug"
+				},
+				{
+					"type": "test",
+					"name": "mac-test-debug"
+				}
+			]
+		},
+		{
+			"name": "mac-default-release",
+			"displayName": "Mac Release",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "mac-default-release"
+				},
+				{
+					"type": "build",
+					"name": "mac-default-release"
+				},
+				{
+					"type": "test",
+					"name": "mac-test-release"
 				}
 			]
 		}
