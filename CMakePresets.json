@@ -160,6 +160,8 @@
 				"rhs": "Darwin"
 			},
 			"cacheVariables": {
+				"CMAKE_C_COMPILER": "clang",
+				"CMAKE_CXX_COMPILER": "clang++",
 				"CMAKE_BUILD_TYPE": "Debug",
 				"CMAKE_CXX_STANDARD": "20",
 				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
@@ -181,6 +183,8 @@
 				"rhs": "Darwin"
 			},
 			"cacheVariables": {
+				"CMAKE_C_COMPILER": "clang",
+				"CMAKE_CXX_COMPILER": "clang++",
 				"CMAKE_BUILD_TYPE": "Release",
 				"CMAKE_CXX_STANDARD": "20",
 				"CMAKE_CXX_STANDARD_REQUIRED": "YES",

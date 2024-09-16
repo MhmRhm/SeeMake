@@ -291,25 +291,56 @@ python3 -m http.server 8172
 
 ## Setting Up Mac
 
-Mac support at the moment lacks coverage reports and dynamic checks. To set up
-Mac for this template, follow these steps:
+Mac support at the moment lacks dynamic checks. To set up Mac for this template,
+follow these steps (replace the `<user>` with correct value):
 
-1. Install Homebrew.
+1. **Install Homebrew:**
 
-```zsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mohammad/.zprofile      
-eval "$(/opt/homebrew/bin/brew shellenv)"
-```
+   Run the following command to install Homebrew, the macOS package manager:
 
-2. Install dependencies:
+   ```zsh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/<user>/.zprofile
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+   ```
 
-```zsh
-brew install git cmake
-brew install cppcheck
-brew install clang-format
-brew install doxygen graphviz
-```
+2. **Install required dependencies:**
+
+   Use Homebrew to install the necessary tools:
+
+   ```zsh
+   brew install git cmake
+   brew install cppcheck
+   brew install clang-format
+   brew install doxygen graphviz
+   ```
+
+3. **Set up LLVM for coverage reports:**
+
+   Since coverage reports require LLVM tools, we need to add them to the system's
+   PATH. You have two options:
+
+   **Option 1: Use LLVM tools without changing the default Apple Clang compiler**  
+   Add LLVM tools (`llvm-cov` and `llvm-profdata`) to the end of your PATH to
+   avoid overriding Apple's Clang compiler. Ensure that the LLVM version matches
+   the default Apple Clang version to avoid compatibility issues:
+
+   ```zsh
+   clang --version
+   brew install llvm@15
+   echo 'export PATH="$PATH:/opt/homebrew/opt/llvm@15/bin"' >> ~/.zshrc
+   ```
+
+   **Option 2: Use LLVM entirely**  
+   If you'd prefer to use the latest LLVM as your default compiler, you can
+   install it and add it to the front of your PATH:
+
+   ```zsh
+   brew install llvm
+   echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> ~/.zshrc
+   ```
+
+Make sure you restart the terminal for the changes in the PATH to take effect.
 
 ## Final Step
 
