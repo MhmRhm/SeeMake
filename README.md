@@ -1,7 +1,7 @@
 # SeeMake
 
-A feature-packed, ready-to-use CMake template with testing, static and dynamic
-checks, coverage reports, and more.
+A feature-packed, ready-to-use, cross-platform CMake template with testing,
+static and dynamic checks, coverage reports, and more.
 
 This template comes with a tutorial and a working example, so be sure to read on.
 
@@ -42,9 +42,8 @@ install targets and demo code.
 executables with one command.
 - **CMake Config Files**: Generates CMake config files so others can easily link
 against your project.
-- **Cross-Platform Support**: All that on both Windows and Linux!
-(Dynamic checks for Windows are still a work in progress)
-
+- **Cross-Platform Support**: All that on Windows, Linux and macOS!
+(Dynamic checks for Windows and macOS are still a work in progress)
 
 This work is based on material from
 [Modern CMake for C++](https://github.com/PacktPublishing/Modern-CMake-for-Cpp)

@@ -353,6 +353,19 @@
 			"displayName": "Windows NSIS",
 			"description": "windows nsis packaging",
 			"configurePreset": "windows-clang-release"
+		},
+		{
+			"name": "mac-dragndrop",
+			"description": "mac drag and drop packaging",
+			"displayName": "Mac DragNDrop",
+			"configurePreset": "mac-default-release",
+			"generators": ["DragNDrop"],
+			"configurations": ["Release"],
+			"vendorName": "Mohammad Rahimi",
+			"packageDirectory": "package-mac-dragndrop",
+			"environment": {
+				"CPACK_PACKAGE_NAME": "SeeMake"
+			}
 		}
 	],
 	"workflowPresets": [
@@ -509,6 +522,10 @@
 				{
 					"type": "test",
 					"name": "mac-test-release"
+				},
+				{
+					"type": "package",
+					"name": "mac-dragndrop"
 				}
 			]
 		}
