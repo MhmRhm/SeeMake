@@ -21,12 +21,12 @@ function(AddMemcheck target)
 			WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 		)
 	elseif (WIN_MSVC)
-		# not working!
+		target_compile_definitions(${target}
+			PRIVATE _DISABLE_VECTOR_ANNOTATION
+			PRIVATE _DISABLE_STRING_ANNOTATION
+		)
 		target_compile_options(${target}
 			PRIVATE /fsanitize=address /Zi
-		)
-		target_link_options(${target}
-			PUBLIC /fsanitize=address /Zi
 		)
 		return()
 	endif()

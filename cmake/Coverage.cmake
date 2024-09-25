@@ -46,7 +46,6 @@ function(AddCoverage target)
 									-instr-profile=default.profdata
 									-show-region-summary=false
 									-show-branch-summary=false
-									-show-branch-summary=false
 			WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 		)
 	elseif(UNIX)
@@ -82,7 +81,6 @@ function(AddCoverage target)
 			COMMAND ${LLVM_COV_PATH} report $<TARGET_FILE:${target}>
 									-instr-profile=default.profdata
 									-show-region-summary=false
-									-show-branch-summary=false
 									-show-branch-summary=false
 			WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 		)

@@ -64,7 +64,6 @@
 				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
 				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
 				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
-				"WIN_MSVC": "YES",
 				"DEFAULT_CXX_COMPILE_FLAGS": "/W4;/Wall;/WX;/EHsc;/wd4668;/wd4710;/wd4711",
 				"DEFAULT_CXX_OPTIMIZE_FLAG": "/Od"
 			}
@@ -74,6 +73,65 @@
 			"displayName": "Windows Release",
 			"description": "Sets compilers, build and install directory, release build type",
 			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "cl.exe",
+				"CMAKE_CXX_COMPILER": "cl.exe",
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
+				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
+				"DEFAULT_CXX_COMPILE_FLAGS": "/W4;/Wall;/WX;/EHsc;/wd4668;/wd4710;/wd4711",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "/Ox"
+			}
+		},
+		{
+			"name": "windows-x86-debug",
+			"displayName": "Windows x86 Debug",
+			"description": "Sets compilers, build and install directory, debug build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"architecture": {
+				"value": "x86",
+				"strategy": "external"
+			},
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "cl.exe",
+				"CMAKE_CXX_COMPILER": "cl.exe",
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_STANDARD": "20",
+				"CMAKE_CXX_STANDARD_REQUIRED": "YES",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/../${sourceDirName}-install-${presetName}",
+				"CPPCHECK_INSTALL_DIR": "C:/Program Files/Cppcheck",
+				"CLANG-FORMAT_INSTALL_DIR": "C:/Program Files/LLVM/bin",
+				"WIN_MSVC": "YES",
+				"DEFAULT_CXX_COMPILE_FLAGS": "/W4;/Wall;/WX;/EHsc;/wd4668;/wd4710;/wd4711",
+				"DEFAULT_CXX_OPTIMIZE_FLAG": "/Od"
+			}
+		},
+		{
+			"name": "windows-x86-release",
+			"displayName": "Windows x86 Release",
+			"description": "Sets compilers, build and install directory, release build type",
+			"binaryDir": "${sourceDir}/../${sourceDirName}-build-${presetName}",
+			"architecture": {
+				"value": "x86",
+				"strategy": "external"
+			},
 			"condition": {
 				"type": "equals",
 				"lhs": "${hostSystemName}",
@@ -230,6 +288,22 @@
 			"configuration": "Release"
 		},
 		{
+			"name": "windows-x86-debug",
+			"jobs": 10,
+			"displayName": "Windows x86 Debug",
+			"description": "debug build type",
+			"configurePreset": "windows-x86-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "windows-x86-release",
+			"jobs": 10,
+			"displayName": "Windows x86 Release",
+			"description": "release build type",
+			"configurePreset": "windows-x86-release",
+			"configuration": "Release"
+		},
+		{
 			"name": "windows-clang-debug",
 			"jobs": 10,
 			"displayName": "Windows Clang Debug",
@@ -286,6 +360,18 @@
 			"displayName": "Windows Test Release",
 			"description": "Tests the release build type",
 			"configurePreset": "windows-default-release"
+		},
+		{
+			"name": "windows-x86-test-debug",
+			"displayName": "Windows x86 Test Debug",
+			"description": "Tests the debug build type",
+			"configurePreset": "windows-x86-debug"
+		},
+		{
+			"name": "windows-x86-test-release",
+			"displayName": "Windows x86 Test Release",
+			"description": "Tests the release build type",
+			"configurePreset": "windows-x86-release"
 		},
 		{
 			"name": "windows-clang-test-debug",
@@ -346,6 +432,13 @@
 			"displayName": "Windows NSIS",
 			"description": "windows nsis packaging",
 			"configurePreset": "windows-default-release"
+		},
+		{
+			"name": "windows-x86-nsis",
+			"inherits": "windows-nsis",
+			"displayName": "Windows NSIS",
+			"description": "windows nsis packaging",
+			"configurePreset": "windows-x86-release"
 		},
 		{
 			"name": "windows-clang-nsis",
@@ -446,6 +539,46 @@
 				{
 					"type": "package",
 					"name": "windows-default-nsis"
+				}
+			]
+		},
+		{
+			"name": "windows-x86-debug",
+			"displayName": "Windows x86 Debug",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "windows-x86-debug"
+				},
+				{
+					"type": "build",
+					"name": "windows-x86-debug"
+				},
+				{
+					"type": "test",
+					"name": "windows-x86-test-debug"
+				}
+			]
+		},
+		{
+			"name": "windows-x86-release",
+			"displayName": "Windows x86 Release",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "windows-x86-release"
+				},
+				{
+					"type": "build",
+					"name": "windows-x86-release"
+				},
+				{
+					"type": "test",
+					"name": "windows-x86-test-release"
+				},
+				{
+					"type": "package",
+					"name": "windows-x86-nsis"
 				}
 			]
 		},
