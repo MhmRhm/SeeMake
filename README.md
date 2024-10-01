@@ -43,7 +43,7 @@ executables with one command.
 - **CMake Config Files**: Generates CMake config files so others can easily link
 against your project.
 - **Cross-Platform Support**: All that on Windows, Linux and macOS!
-(Dynamic checks for Windows and macOS are still a work in progress)
+(Dynamic checks for macOS is still a work in progress)
 
 This work is based on material from
 [Modern CMake for C++](https://github.com/PacktPublishing/Modern-CMake-for-Cpp)
@@ -51,10 +51,11 @@ by Rafał Świdziński, which is licensed under the MIT license. It is one of th
 most useful books I have read.
 
 For those using this template who want a deeper understanding, I’ve provided a
-brief tutorial on CMake and this template at
-[DotBashHistory](https://mhmrhm.github.io/DotBashHistory/). I highly recommend
-that you review the tutorial or at least examine each file in this template to
-understand them. You will likely need to modify these files at some point.
+tutorial on this template at
+[DotBashHistory](https://mhmrhm.github.io/DotBashHistory/cmake/templates/2024/09/24/see-make.html).
+I highly recommend that you review the tutorial or at least examine each file in
+this template to understand them. You will likely need to modify these files at
+some point.
 
 I also have another project that implements the Model-View-Controller (MVC)
 design pattern, using this template as a foundation. You can check it out in
@@ -197,7 +198,7 @@ Examples:
 1. **Documentation**:
    ```bash
    cmake --build --preset linux-default-debug --target doxygen-libsee_static
-   cd ../CppMeetup-build-linux-default-debug/doxygen-libsee_static/
+   cd ../SeeMake-build-linux-default-debug/doxygen-libsee_static/
    python3 -m http.server 8172
    # Go to localhost:8172 in your browser to view the documentation
    ```
@@ -207,7 +208,7 @@ Examples:
 2. **Memory Check Report**:
    ```bash
    cmake --build --preset linux-default-debug --target memcheck-google_test_libsee
-   cd ../CppMeetup-build-linux-default-debug/valgrind-google_test_libsee/
+   cd ../SeeMake-build-linux-default-debug/valgrind-google_test_libsee/
    python3 -m http.server 8172
    # Go to localhost:8172 to view the test results
    ```
@@ -217,7 +218,7 @@ Examples:
 3. **Coverage Report**:
    ```bash
    cmake --build --preset linux-default-debug --target coverage-google_test_libsee
-   cd ../CppMeetup-build-linux-default-debug/coverage-google_test_libsee/
+   cd ../SeeMake-build-linux-default-debug/coverage-google_test_libsee/
    python3 -m http.server 8172
    # Go to localhost:8172 to view the test coverage report
    ```
@@ -274,7 +275,7 @@ To generate coverage reports on Windows:
 
 ```bash
 cmake --build --preset windows-clang-debug --target coverage-google_test_libsee
-cd ../CppMeetup-build-windows-clang-debug/coverage-google_test_libsee/
+cd ../SeeMake-build-windows-clang-debug/coverage-google_test_libsee/
 python3 -m http.server 8172
 # Go to localhost:8172 to view the test coverage report
 ```
