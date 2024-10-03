@@ -264,12 +264,32 @@
 			"configuration": "Debug"
 		},
 		{
+			"name": "linux-default-debug-doxygen",
+			"inherits": "linux-default-debug",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
+		},
+		{
+			"name": "linux-default-debug-coverage",
+			"inherits": "linux-default-debug",
+			"targets": ["coverage-google_test_libsee"]
+		},
+		{
+			"name": "linux-default-debug-memcheck",
+			"inherits": "linux-default-debug",
+			"targets": ["memcheck-google_test_libsee"]
+		},
+		{
 			"name": "linux-default-release",
 			"jobs": 10,
 			"displayName": "Linux Release",
 			"description": "release build type",
 			"configurePreset": "linux-default-release",
 			"configuration": "Release"
+		},
+		{
+			"name": "linux-default-release-doxygen",
+			"inherits": "linux-default-release",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
 		},
 		{
 			"name": "windows-default-debug",
@@ -280,12 +300,22 @@
 			"configuration": "Debug"
 		},
 		{
+			"name": "windows-default-debug-doxygen",
+			"inherits": "windows-default-debug",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
+		},
+		{
 			"name": "windows-default-release",
 			"jobs": 10,
 			"displayName": "Windows Release",
 			"description": "release build type",
 			"configurePreset": "windows-default-release",
 			"configuration": "Release"
+		},
+		{
+			"name": "windows-default-release-doxygen",
+			"inherits": "windows-default-release",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
 		},
 		{
 			"name": "windows-x86-debug",
@@ -296,12 +326,22 @@
 			"configuration": "Debug"
 		},
 		{
+			"name": "windows-x86-debug-doxygen",
+			"inherits": "windows-x86-debug",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
+		},
+		{
 			"name": "windows-x86-release",
 			"jobs": 10,
 			"displayName": "Windows x86 Release",
 			"description": "release build type",
 			"configurePreset": "windows-x86-release",
 			"configuration": "Release"
+		},
+		{
+			"name": "windows-x86-release-doxygen",
+			"inherits": "windows-x86-release",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
 		},
 		{
 			"name": "windows-clang-debug",
@@ -312,12 +352,27 @@
 			"configuration": "Debug"
 		},
 		{
+			"name": "windows-clang-debug-doxygen",
+			"inherits": "windows-clang-debug",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
+		},
+		{
+			"name": "windows-clang-debug-coverage",
+			"inherits": "windows-clang-debug",
+			"targets": ["coverage-google_test_libsee"]
+		},
+		{
 			"name": "windows-clang-release",
 			"jobs": 10,
 			"displayName": "Windows Clang Release",
 			"description": "release build type",
 			"configurePreset": "windows-clang-release",
 			"configuration": "Release"
+		},
+		{
+			"name": "windows-clang-release-doxygen",
+			"inherits": "windows-clang-release",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
 		},
 		{
 			"name": "mac-default-debug",
@@ -328,12 +383,27 @@
 			"configuration": "Debug"
 		},
 		{
+			"name": "mac-default-debug-doxygen",
+			"inherits": "mac-default-debug",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
+		},
+		{
+			"name": "mac-default-debug-coverage",
+			"inherits": "mac-default-debug",
+			"targets": ["coverage-google_test_libsee"]
+		},
+		{
 			"name": "mac-default-release",
 			"jobs": 10,
 			"displayName": "Mac Release",
 			"description": "release build type",
 			"configurePreset": "mac-default-release",
 			"configuration": "Release"
+		},
+		{
+			"name": "mac-default-release-doxygen",
+			"inherits": "mac-default-release",
+			"targets": ["doxygen-libsee_static", "doxygen-terminal_see_static"]
 		}
 	],
 	"testPresets": [
@@ -429,21 +499,21 @@
 		{
 			"name": "windows-default-nsis",
 			"inherits": "windows-nsis",
-			"displayName": "Windows NSIS",
+			"displayName": "Windows Default NSIS",
 			"description": "windows nsis packaging",
 			"configurePreset": "windows-default-release"
 		},
 		{
 			"name": "windows-x86-nsis",
 			"inherits": "windows-nsis",
-			"displayName": "Windows NSIS",
+			"displayName": "Windows x86 NSIS",
 			"description": "windows nsis packaging",
 			"configurePreset": "windows-x86-release"
 		},
 		{
 			"name": "windows-clang-nsis",
 			"inherits": "windows-nsis",
-			"displayName": "Windows NSIS",
+			"displayName": "Windows Clang NSIS",
 			"description": "windows nsis packaging",
 			"configurePreset": "windows-clang-release"
 		},
@@ -477,6 +547,18 @@
 				{
 					"type": "test",
 					"name": "linux-test-debug"
+				},
+				{
+					"type": "build",
+					"name": "linux-default-debug-coverage"
+				},
+				{
+					"type": "build",
+					"name": "linux-default-debug-memcheck"
+				},
+				{
+					"type": "build",
+					"name": "linux-default-debug-doxygen"
 				}
 			]
 		},
@@ -495,6 +577,10 @@
 				{
 					"type": "test",
 					"name": "linux-test-release"
+				},
+				{
+					"type": "build",
+					"name": "linux-default-release-doxygen"
 				},
 				{
 					"type": "package",
@@ -517,6 +603,10 @@
 				{
 					"type": "test",
 					"name": "windows-test-debug"
+				},
+				{
+					"type": "build",
+					"name": "windows-default-debug-doxygen"
 				}
 			]
 		},
@@ -535,6 +625,10 @@
 				{
 					"type": "test",
 					"name": "windows-test-release"
+				},
+				{
+					"type": "build",
+					"name": "windows-default-release-doxygen"
 				},
 				{
 					"type": "package",
@@ -557,6 +651,10 @@
 				{
 					"type": "test",
 					"name": "windows-x86-test-debug"
+				},
+				{
+					"type": "build",
+					"name": "windows-x86-debug-doxygen"
 				}
 			]
 		},
@@ -575,6 +673,10 @@
 				{
 					"type": "test",
 					"name": "windows-x86-test-release"
+				},
+				{
+					"type": "build",
+					"name": "windows-x86-release-doxygen"
 				},
 				{
 					"type": "package",
@@ -597,6 +699,14 @@
 				{
 					"type": "test",
 					"name": "windows-clang-test-debug"
+				},
+				{
+					"type": "build",
+					"name": "windows-clang-debug-coverage"
+				},
+				{
+					"type": "build",
+					"name": "windows-clang-debug-doxygen"
 				}
 			]
 		},
@@ -615,6 +725,10 @@
 				{
 					"type": "test",
 					"name": "windows-clang-test-release"
+				},
+				{
+					"type": "build",
+					"name": "windows-clang-release-doxygen"
 				},
 				{
 					"type": "package",
@@ -637,6 +751,14 @@
 				{
 					"type": "test",
 					"name": "mac-test-debug"
+				},
+				{
+					"type": "build",
+					"name": "mac-default-debug-coverage"
+				},
+				{
+					"type": "build",
+					"name": "mac-default-debug-doxygen"
 				}
 			]
 		},
@@ -655,6 +777,10 @@
 				{
 					"type": "test",
 					"name": "mac-test-release"
+				},
+				{
+					"type": "build",
+					"name": "mac-default-release-doxygen"
 				},
 				{
 					"type": "package",
