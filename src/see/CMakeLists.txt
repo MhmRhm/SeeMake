@@ -14,7 +14,7 @@ target_link_libraries(terminal_see_static
 BuildInfo(terminal_see_static)
 CleanCoverage(terminal_see_static)
 Format(terminal_see_static .)
-AddCppCheck(terminal_see_static)
+AddCppcheck(terminal_see_static)
 Doxygen(terminal_see_static src/see)
 
 add_executable(appsee main.cpp)

@@ -38,5 +38,5 @@ set_target_properties(libsee_static PROPERTIES
 BuildInfo(libsee_obj)
 CleanCoverage(libsee_static)
 Format(libsee_static .)
-AddCppCheck(libsee_static)
+AddCppcheck(libsee_static)
 Doxygen(libsee_static src/libsee)

@@ -1,4 +1,7 @@
-find_package(Doxygen REQUIRED)
+find_package(Doxygen
+	REQUIRED dot
+	OPTIONAL_COMPONENTS mscgen dia
+)
 
 include(FetchContent)
 FetchContent_Declare(

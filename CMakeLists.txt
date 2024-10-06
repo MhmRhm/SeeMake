@@ -11,7 +11,7 @@ include(EnableIPOSupport)
 include(Precompiling)
 include(BuildInfo)
 include(Coverage)
-include(CppCheck)
+include(Cppcheck)
 include(Doxygen)
 include(Format)
 

@@ -27,7 +27,7 @@ Boost.Test, with demo code for each.
 - **Simple Dependency Management**: Most dependencies are fetched using CMake's
 FetchContent, so there's no need to manually build and install Boost or Google
 libraries.
-- **Static and Dynamic Checks**: Uses Memcheck and CppCheck to perform dynamic
+- **Static and Dynamic Checks**: Uses Memcheck and Cppcheck to perform dynamic
 and static checks.
 - **Git Information**: Easily include Git details like commit hash and branch
 name in your binary.
