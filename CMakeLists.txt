@@ -5,8 +5,8 @@ project(SeeMake VERSION 0.0.1 LANGUAGES C CXX)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 list(APPEND CMAKE_PREFIX_PATH "${QTDIR}")
 
-option(see_BUILD_TESTS "Set to OFF to not build tests" ON)
-option(see_BUILD_BENCHMARKS "Set to OFF to not build benchmarks" ON)
+option(ProjectName_BUILD_TESTS "Set to OFF to not build tests" ON)
+option(ProjectName_BUILD_BENCHMARKS "Set to OFF to not build benchmarks" ON)
 
 enable_testing()
 

@@ -1,7 +1,7 @@
-#include "see/see_app.h"
-#include "libsee/see.h"
+#include "ProjectName/ProjectName_app.h"
+#include "libProjectName/ProjectName.h"
 
-bool seeApp() {
+bool ProjectNameApp() {
   using namespace std;
   cout << getVersion() << endl;
   return true;

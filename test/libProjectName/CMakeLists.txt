@@ -1,13 +1,13 @@
-add_executable(google_test_libsee
-	google_test_see.cpp
+add_executable(google_test_libProjectName
+	google_test_ProjectName.cpp
 )
 
-target_link_libraries(google_test_libsee
-	PRIVATE libsee_obj
+target_link_libraries(google_test_libProjectName
+	PRIVATE libProjectName_obj
 )
 
-AddTestResources(google_test_libsee resources)
+AddTestResources(google_test_libProjectName resources)
 
-Format(google_test_libsee .)
-AddGTests(google_test_libsee)
-EnableCoverage(libsee_obj libsee_interface)
+Format(google_test_libProjectName .)
+AddGTests(google_test_libProjectName)
+EnableCoverage(libProjectName_obj libProjectName_interface)

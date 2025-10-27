@@ -3,52 +3,52 @@ include(CMakePackageConfigHelpers)
 install(
 	TARGETS
 		precompiled
-		libsee_interface
-		libsee_static
-		libsee_shared
-	EXPORT libsee-targets
+		libProjectName_interface
+		libProjectName_static
+		libProjectName_shared
+	EXPORT libProjectName-targets
 )
 install(
-	DIRECTORY src/libsee/include/libsee
+	DIRECTORY src/libProjectName/include/libProjectName
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 	FILES_MATCHING PATTERN "*.h"
 )
 install(
-	EXPORT libsee-targets
-	NAMESPACE see::
-	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libsee"
+	EXPORT libProjectName-targets
+	NAMESPACE ProjectName::
+	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libProjectName"
 )
 
-add_library(see::precompiled ALIAS precompiled)
-add_library(see::libsee_interface ALIAS libsee_interface)
-add_library(see::libsee_static ALIAS libsee_static)
-add_library(see::libsee_shared ALIAS libsee_shared)
+add_library(ProjectName::precompiled ALIAS precompiled)
+add_library(ProjectName::libProjectName_interface ALIAS libProjectName_interface)
+add_library(ProjectName::libProjectName_static ALIAS libProjectName_static)
+add_library(ProjectName::libProjectName_shared ALIAS libProjectName_shared)
 
 export(
-	TARGETS precompiled libsee_interface libsee_static libsee_shared
-	NAMESPACE see::
-	FILE "${PROJECT_BINARY_DIR}/libsee-targets.cmake"
+	TARGETS precompiled libProjectName_interface libProjectName_static libProjectName_shared
+	NAMESPACE ProjectName::
+	FILE "${PROJECT_BINARY_DIR}/libProjectName-targets.cmake"
 )
 
 configure_package_config_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/cmake/libsee-config.cmake.in"
-	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libsee-config.cmake"
-	INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libsee"
+	"${CMAKE_CURRENT_SOURCE_DIR}/cmake/libProjectName-config.cmake.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libProjectName-config.cmake"
+	INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libProjectName"
 	PATH_VARS CMAKE_INSTALL_INCLUDEDIR
 )
 write_basic_package_version_file(
-	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libsee-config-version.cmake"
+	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libProjectName-config-version.cmake"
 	VERSION "${PROJECT_VERSION}"
 	COMPATIBILITY SameMajorVersion
 )
 install(
 	FILES
-	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libsee-config.cmake"
-	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libsee-config-version.cmake"
-	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libsee"
+	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libProjectName-config.cmake"
+	"${CMAKE_CURRENT_BINARY_DIR}/cmake/libProjectName-config-version.cmake"
+	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libProjectName"
 )
 
-install(TARGETS see)
+install(TARGETS ProjectName)
 
 set(CPACK_PACKAGE_CONTACT "Mohammad Rahimi <https://github.com/MhmRhm>")
 set(CPACK_PACKAGE_DESCRIPTION "SeeMake: a CMake project template.")

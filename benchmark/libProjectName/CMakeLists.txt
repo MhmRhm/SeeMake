@@ -1,10 +1,10 @@
-add_executable(google_bench_libsee
-	google_bench_see.cpp
+add_executable(google_bench_libProjectName
+	google_bench_ProjectName.cpp
 )
 
-target_link_libraries(google_bench_libsee
-	PRIVATE libsee_static
+target_link_libraries(google_bench_libProjectName
+	PRIVATE libProjectName_static
 )
 
-Format(google_bench_libsee .)
-AddBenchmarks(google_bench_libsee)
+Format(google_bench_libProjectName .)
+AddBenchmarks(google_bench_libProjectName)

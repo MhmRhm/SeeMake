@@ -1,4 +1,4 @@
-#include "see/see_app.h"
+#include "ProjectName/ProjectName_app.h"
 
 /**
  * @brief Entry point of the program
@@ -6,6 +6,6 @@
  * @return int
  */
 int main() {
-  seeApp();
+  ProjectNameApp();
   return 0;
 }

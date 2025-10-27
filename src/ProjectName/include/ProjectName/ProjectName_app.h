@@ -5,4 +5,4 @@
  *
  * @return true Always
  */
-bool seeApp();
+bool ProjectNameApp();

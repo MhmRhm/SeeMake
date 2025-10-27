@@ -1,10 +1,10 @@
-add_executable(google_bench_see_app
-	google_bench_see_app.cpp
+add_executable(google_bench_ProjectName_app
+	google_bench_ProjectName_app.cpp
 )
 
-target_link_libraries(google_bench_see_app
-	PRIVATE see_app_static
+target_link_libraries(google_bench_ProjectName_app
+	PRIVATE ProjectName_app_static
 )
 
-Format(google_bench_see_app .)
-AddBenchmarks(google_bench_see_app)
+Format(google_bench_ProjectName_app .)
+AddBenchmarks(google_bench_ProjectName_app)

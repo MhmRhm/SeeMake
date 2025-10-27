@@ -302,17 +302,17 @@
 		{
 			"name": "linux-default-debug-doxygen",
 			"inherits": "linux-default-debug",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "linux-default-debug-coverage",
 			"inherits": "linux-default-debug",
-			"targets": ["coverage-google_test_libsee"]
+			"targets": ["coverage-google_test_libProjectName"]
 		},
 		{
 			"name": "linux-default-debug-memcheck",
 			"inherits": "linux-default-debug",
-			"targets": ["memcheck-google_test_libsee"]
+			"targets": ["memcheck-google_test_libProjectName"]
 		},
 		{
 			"name": "linux-default-release",
@@ -325,7 +325,7 @@
 		{
 			"name": "linux-default-release-doxygen",
 			"inherits": "linux-default-release",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "windows-default-debug",
@@ -338,7 +338,7 @@
 		{
 			"name": "windows-default-debug-doxygen",
 			"inherits": "windows-default-debug",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "windows-default-release",
@@ -351,7 +351,7 @@
 		{
 			"name": "windows-default-release-doxygen",
 			"inherits": "windows-default-release",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "windows-x86-debug",
@@ -364,7 +364,7 @@
 		{
 			"name": "windows-x86-debug-doxygen",
 			"inherits": "windows-x86-debug",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "windows-x86-release",
@@ -377,7 +377,7 @@
 		{
 			"name": "windows-x86-release-doxygen",
 			"inherits": "windows-x86-release",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "windows-clang-debug",
@@ -390,12 +390,12 @@
 		{
 			"name": "windows-clang-debug-doxygen",
 			"inherits": "windows-clang-debug",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "windows-clang-debug-coverage",
 			"inherits": "windows-clang-debug",
-			"targets": ["coverage-google_test_libsee"]
+			"targets": ["coverage-google_test_libProjectName"]
 		},
 		{
 			"name": "windows-clang-release",
@@ -408,7 +408,7 @@
 		{
 			"name": "windows-clang-release-doxygen",
 			"inherits": "windows-clang-release",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "mac-default-debug",
@@ -421,12 +421,12 @@
 		{
 			"name": "mac-default-debug-doxygen",
 			"inherits": "mac-default-debug",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		},
 		{
 			"name": "mac-default-debug-coverage",
 			"inherits": "mac-default-debug",
-			"targets": ["coverage-google_test_libsee"]
+			"targets": ["coverage-google_test_libProjectName"]
 		},
 		{
 			"name": "mac-default-release",
@@ -439,7 +439,7 @@
 		{
 			"name": "mac-default-release-doxygen",
 			"inherits": "mac-default-release",
-			"targets": ["doxygen-libsee_static", "doxygen-see_app_static"]
+			"targets": ["doxygen-libProjectName_static", "doxygen-ProjectName_app_static"]
 		}
 	],
 	"testPresets": [

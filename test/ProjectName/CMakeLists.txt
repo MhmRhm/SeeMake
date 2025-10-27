@@ -1,11 +1,11 @@
-add_executable(boost_test_see_app
-	boost_test_see_app.cpp
+add_executable(boost_test_ProjectName_app
+	boost_test_ProjectName_app.cpp
 )
 
-target_link_libraries(boost_test_see_app
-	PRIVATE see_app_obj
+target_link_libraries(boost_test_ProjectName_app
+	PRIVATE ProjectName_app_obj
 )
 
-Format(boost_test_see_app .)
-AddBoostTests(boost_test_see_app)
-EnableCoverage(see_app_obj see_app_interface)
+Format(boost_test_ProjectName_app .)
+AddBoostTests(boost_test_ProjectName_app)
+EnableCoverage(ProjectName_app_obj ProjectName_app_interface)

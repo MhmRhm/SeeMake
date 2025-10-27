@@ -1,4 +1,4 @@
-#include "libsee/see.h"
+#include "libProjectName/ProjectName.h"
 #include "buildinfo/buildinfo.h"
 
 std::string getVersion() {
